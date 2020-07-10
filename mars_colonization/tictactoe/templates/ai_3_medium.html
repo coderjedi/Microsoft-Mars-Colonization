@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+		<script type="text/javascript" src="{% static 'js/script_unbeatable.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/script_medium.js' %}"></script>
+		<script type="text/javascript">
+		var str=new String('{{algo}}');
+		</script>
+		<title>Mars Colonization Program</title>
+	</head>
+	<body>
+		<div style="width: 100%;">
+			<header>
+				<p>TicTacToe AI using {{algo}} Algorithm</p>
+				<p style="background-color:tomato;">Difficulty: MEDIUM</p>
+						</header>
+			</div>
+    <div style="float:left; width: 75%">
+			<br />
+			<h1 id="message" style="font-family: Sans;text-align: center;color:white"></h1>
+			<br />
+		<table id="tab-tic-tac-toe" cellspacing="0">
+			<tr><td id="00" onclick="clickedCell_medium(this,str)"></td><td id="01" onclick="clickedCell_medium(this,str)"></td><td id="02" onclick="clickedCell_medium(this,str)"></td></tr>
+			<tr><td id="10" onclick="clickedCell_medium(this,str)"></td><td id="11" onclick="clickedCell_medium(this,str)"></td><td id="12" onclick="clickedCell_medium(this,str)"></td></tr>
+			<tr><td id="20" onclick="clickedCell_medium(this,str)"></td><td id="21" onclick="clickedCell_medium(this,str)"></td><td id="22" onclick="clickedCell_medium(this,str)"></td></tr>
+		</table>
+		<br><br>
+		<h2 id="hint" style="font-family: Sans;text-align: center;color:white;"></h2>
+		<br />
+		<input type="button" value="AI starts" id="bnt-restart" onclick="restartBnt_medium(this,str)"/>
+		<br>
+		<input type="button" value="Suggest me a Move" id="bnt-hint" onclick="hint(str)"/>
+		<br />
+	</div>
+
+	<div style="float:right;width: 25%;background-color:#3b606d;height: 100vh;">
+
+	 <form class="p-3" method="post" action="{% url 'red' %}">
+		 <div class="login-box">
+
+	 <div class="form-group">
+		 &nbsp
+		 <label for="gamemode">Please select game mode:</label>
+		 <br>
+		 &nbsp
+		 <select class="form-control" id="gamemode" name="mode" required>
+				 <option value=""></option>
+				 <option value="yes">AI vs Player</option>
+				 <option value="no">Player vs Player</option>
+	 </select>
+	 </div>
+	 <div class="form-group" id="level">
+				 &nbsp
+	 <label for="difficulty">Please select a difficulty level:</label>
+	 <br>
+			 &nbsp
+	 <select class="form-control" id="difficulty" name="level">
+		 <option value=""></option>
+		 <option value="easy">Easy</option>
+		 <option value="medium">Medium</option>
+		 <option value="unbeatable">Unbeatable</option>
+	 </select>
+ </div>
+	 <div class="form-group" id="algorithm">
+				 &nbsp
+	 <label for="algo">Please select an algorithm for AI:</label>
+	 <br>
+			 &nbsp
+	 <select class="form-control" id="algo" name="algo">
+		 <option value=""></option>
+		 <option value="Minimax">Minimax Algorithm</option>
+		 <option value="NN">Neural Network Based Algorithm</option>
+		 <option value="Logic">Logic Based Algorithm</option>
+	 </select>
+ </div>
+ <div class="form-group" id="gridsize">
+			 &nbsp
+ <label for="grid">Please select a grid size:</label>
+ <br>
+		 &nbsp
+ <select class="form-control" id="grid" name="grid">
+	 <option value=""></option>
+	 <option value="3">3 x 3</option>
+	 <option value="4">4 x 4</option>
+ </select>
+</div>
+<button type="submit" class="error__button error__button--active">Submit</button>
+<script type="text/javascript">
+$("#gamemode").change(function() {
+ if ($(this).val() == "yes") {
+	 $('#level').show();
+	 $('#difficulty').attr('required','');
+	 $('#difficulty').attr('data-error', 'This field is required.');
+	 $('#algorithm').show();
+	 $('#algo').attr('required','');
+	 $('#algo').attr('data-error', 'This field is required.');
+	 $('#gridsize').hide();
+	 $('#grid').removeAttr('required');
+	 $('#grid').removeAttr('data-error');
+ } else {
+	 $('#level').hide();
+	 $('#difficulty').removeAttr('required');
+	 $('#difficulty').removeAttr('data-error');
+	 $('#algorithm').hide();
+	 $('#algo').removeAttr('required');
+	 $('#algo').removeAttr('data-error');
+	 $('#gridsize').show();
+	 $('#grid').attr('required','');
+	 $('#grid').attr('data-error', 'This field is required.');
+ }
+});
+$("#gamemode").trigger("change");
+
+// $("#algo").change(function() {
+//             if ($(this).val() == "NN" || $(this).val()=="Logic" ) {
+//               $('#gridsize').hide();
+//               $('#grid').removeAttr('required');
+//               $('#grid').removeAttr('data-error');
+//             } else {
+//               $('#gridsize').show();
+//               $('#grid').attr('required','');
+//               $('#grid').attr('data-error', 'This field is required.');
+//             }
+//           });
+//           $("#algo").trigger("change");
+</script>
+ </div>
+<div class="stars">
+</div>
+<div class="objects">
+ <img class="object_rocket" src="http://salehriaz.com/404Page/img/rocket.svg" width="40px">
+ <div class="earth-moon">
+	 <img class="object_earth" src="http://salehriaz.com/404Page/img/earth.svg" width="100px">
+	 <img class="object_moon" src="http://salehriaz.com/404Page/img/moon.svg" width="80px">
+ </div>
+ <div class="box_astronaut">
+	 <img class="object_astronaut" src="http://salehriaz.com/404Page/img/astronaut.svg" width="140px">
+ </div>
+</div>
+<div class="glowing_stars">
+ <div class="star"></div>
+ <div class="star"></div>
+ <div class="star"></div>
+ <div class="star"></div>
+ <div class="star"></div>
+
+</div>
+
+</div>
+</form>
+ </div>
+ </body>
+</html>
+</body>
+</html>
