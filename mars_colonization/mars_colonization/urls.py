@@ -32,6 +32,7 @@ urlpatterns = [
     path('minimax_e/',views.Ai_3_minimax_easy,name='mnmx_e'),
     path('logical_e/',views.Ai_3_lgcl_easy,name='lgcl_e'),
     path('neural_e/',views.Ai_3_nn_easy,name='nn_page_e'),
+    path('r/',views.reverse,name='reverse'),
     # path('mnm_4e/',views.Ai_4_minimax_e,name='mnmx_4_e'),
     # path('mnm_4m/',views.Ai_4_minimax_m,name='mnmx_4_m'),
     # path('mnm_4u/',views.Ai_4_minimax_u,name='mnmx_4_u'),

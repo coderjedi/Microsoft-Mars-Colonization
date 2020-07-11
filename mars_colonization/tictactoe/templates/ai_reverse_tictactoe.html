@@ -6,17 +6,15 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
-		<script type="text/javascript" src="{% static 'js/script_unbeatable.js' %}"></script>
-		<script type="text/javascript">
-		var str=new String('{{algo}}');
-		</script>
+    		<script type="text/javascript" src="{% static 'js/script_unbeatable.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/Reverse_TicTacToe.js' %}"></script>
 		<title>Mars Colonization Program</title>
 	</head>
 	<body >
 		<div style="width: 100%;">
 			<header>
-				<p>TicTacToe AI using {{algo}} Algorithm</p>
-				<p style="background-color:red;">Difficulty: UNBEATABLE</p>
+				<div style="color:cyan;">REVERSE TICTACTOE using Unbeatable Minimax AI </div>
+				<p class="reverse" style="background-color:#072FEC;color:#F15A5A">RULE: The player who gets three in a line loses</p>
 						</header>
 			</div>
     <div style="float:left; width: 75%;" >
@@ -24,16 +22,16 @@
 			<h1 id="message" style="font-family: Sans;text-align: center;color:white;"></h1>
 			<br />
 		<table id="tab-tic-tac-toe" cellspacing="0">
-			<tr><td id="00" onclick="clickedCell(this,str)"></td><td id="01" onclick="clickedCell(this,str)"></td><td id="02" onclick="clickedCell(this,str)"></td></tr>
-			<tr><td id="10" onclick="clickedCell(this,str)"></td><td id="11" onclick="clickedCell(this,str)"></td><td id="12" onclick="clickedCell(this,str)"></td></tr>
-			<tr><td id="20" onclick="clickedCell(this,str)"></td><td id="21" onclick="clickedCell(this,str)"></td><td id="22" onclick="clickedCell(this,str)"></td></tr>
+			<tr><td id="00" onclick="clickedCell_reverse(this)"></td><td id="01" onclick="clickedCell_reverse(this)"></td><td id="02" onclick="clickedCell_reverse(this)"></td></tr>
+			<tr><td id="10" onclick="clickedCell_reverse(this)"></td><td id="11" onclick="clickedCell_reverse(this)"></td><td id="12" onclick="clickedCell_reverse(this)"></td></tr>
+			<tr><td id="20" onclick="clickedCell_reverse(this)"></td><td id="21" onclick="clickedCell_reverse(this)"></td><td id="22" onclick="clickedCell_reverse(this)"></td></tr>
 		</table>
 		<br><br>
 		<h2 id="hint" style="font-family: Sans;text-align: center;color:white;"></h2>
 		<br />
-		<input type="button" value="AI starts" id="bnt-restart" onclick="restartBnt(this,str)"/>
+		<input type="button" value="AI starts" id="bnt-restart" onclick="restartBnt_reverse(this)"/>
 		<br>
-		<input type="button" value="Suggest me a Move" id="bnt-hint" onclick="hint(str)"/>
+		<input type="button" value="Suggest me a Move" id="bnt-hint" onclick="hint_reverse()"/>
 		<br />
 		</div>
 
@@ -89,8 +87,6 @@
 	 </select>
  </div>
  <button type="submit" class="error__button error__button--active">Submit</button>
- <br>
- <button class="error__button error__button--active"onclick="window.location.href='{% url 'reverse' %}'">Try Reverse TicTacToe</button>
  <script type="text/javascript">
  $("#gamemode").change(function() {
 	 if ($(this).val() == "yes") {
@@ -117,18 +113,6 @@
  });
  $("#gamemode").trigger("change");
 
-// $("#algo").change(function() {
-//             if ($(this).val() == "NN" || $(this).val()=="Logic" ) {
-//               $('#gridsize').hide();
-//               $('#grid').removeAttr('required');
-//               $('#grid').removeAttr('data-error');
-//             } else {
-//               $('#gridsize').show();
-//               $('#grid').attr('required','');
-//               $('#grid').attr('data-error', 'This field is required.');
-//             }
-//           });
-//           $("#algo").trigger("change");
  </script>
   </div>
 	<div class="stars">

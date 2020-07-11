@@ -23,7 +23,6 @@ header {
 	font-size: 2em;
 	color: rgb(211, 204, 204);
 }
-
 p {
 	font-size: 16pt;
 	font-weight: bold;
@@ -269,11 +268,6 @@ a:visited {
     transition: transform ease-in 99999999999s;
 */
 }
-
-.earth-moon{
-
-}
-
 
 .box_astronaut{
     z-index: 110 !important;

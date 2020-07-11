@@ -90,6 +90,8 @@
  </select>
 </div>
 <button type="submit" class="error__button error__button--active">Submit</button>
+<br>
+<button class="error__button error__button--active"onclick="window.location.href='{% url 'reverse' %}'">Try Reverse TicTacToe</button>
 <script type="text/javascript">
 $("#gamemode").change(function() {
  if ($(this).val() == "yes") {

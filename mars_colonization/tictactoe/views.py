@@ -12,6 +12,7 @@ import random
 import numpy as np
 import math
 
+
 # Redirects the user to a specific url based on game settings selected by them
 @csrf_exempt
 def Redirection(request):
@@ -62,6 +63,9 @@ def form(request):
 
 def info(request):
     return render(request, 'knowmore.html')
+
+def reverse(request):
+    return render(request, 'ai_reverse_tictactoe.html')
 
 def Ai_3_minimax(request):
     return render(request, 'ai_3_unbeatable.html',{"algo": "Minimax"})
