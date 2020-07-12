@@ -72,9 +72,10 @@
 				 &nbsp
 		 <select class="form-control" id="algo" name="algo">
 			 <option value=""></option>
-			 <option value="Minimax">Minimax Algorithm</option>
-			 <option value="NN">Neural Network Based Algorithm</option>
-			 <option value="Logic">Logic Based Algorithm</option>
+			 <option value="Minimax">TicTacToe using Minimax Algo.</option>
+			 <option value="NN">TicTacToe using Neural Networks</option>
+			 <option value="Logic">TicTacToe using Logic Based Algo.</option>
+			 <option value="Reverse">Reverse TicTacToe using Minimax Algo.</option>
 		 </select>
 	 </div>
 	 <div class="form-group" id="gridsize">
@@ -89,8 +90,7 @@
 	 </select>
  </div>
  <button type="submit" class="error__button error__button--active">Submit</button>
- <br>
-<button class="error__button error__button--active"onclick="window.location.href='{% url 'reverse' %}'">Try Reverse TicTacToe</button>
+
  <script type="text/javascript">
  $("#gamemode").change(function() {
 	 if ($(this).val() == "yes") {

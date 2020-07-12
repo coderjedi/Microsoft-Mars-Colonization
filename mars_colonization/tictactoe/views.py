@@ -33,6 +33,13 @@ def Redirection(request):
                 return redirect('nn_page_m', permanent=True)
             else:
                 return redirect('nn_page', permanent=True)
+        elif request.POST['algo']=="Reverse":
+            if(level=="easy"):
+                return redirect('reverse_e', permanent=True)
+            elif(level=="medium"):
+                return redirect('reverse_m', permanent=True)
+            else:
+                return redirect('reverse_u', permanent=True)
         else:
             # if(request.POST['grid']=="4"):
             #     if(level=="easy"):
@@ -63,9 +70,6 @@ def form(request):
 
 def info(request):
     return render(request, 'knowmore.html')
-
-def reverse(request):
-    return render(request, 'ai_reverse_tictactoe.html')
 
 def Ai_3_minimax(request):
     return render(request, 'ai_3_unbeatable.html',{"algo": "Minimax"})
@@ -99,6 +103,15 @@ def PvP_4(request):
 
 def PvP_3(request):
     return render(request, 'human_3.html')
+
+def reverse_easy(request):
+    return render(request, 'ai_reverse_tictactoe.html',{"level": "Easy"})
+
+def reverse_medium(request):
+    return render(request, 'ai_reverse_tictactoe.html',{"level": "Medium"})
+
+def reverse_unbeatable(request):
+    return render(request, 'ai_reverse_tictactoe.html',{"level": "Unbeatable"})
 
 # def Ai_4_minimax_e(request):
 #     return render(request, 'minimax_4.html',{"level": "easy"})

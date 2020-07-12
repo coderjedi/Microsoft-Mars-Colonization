@@ -54,9 +54,10 @@
       &nbsp
   <select class="form-control" id="algo" name="algo">
     <option value=""></option>
-    <option value="Minimax">Minimax Algorithm</option>
-    <option value="NN">Neural Network Based Algorithm</option>
-    <option value="Logic">Logic Based Algorithm</option>
+    <option value="Minimax">TicTacToe using Minimax algorithm</option>
+    <option value="NN">TicTacToe using Neural Networks</option>
+    <option value="Logic">TicTacToe using Logic Based algorithm</option>
+    <option value="Reverse">Reverse TicTacToe using Minimax algorithm</option>
   </select>
 </div>
 <br>
@@ -71,8 +72,8 @@
   <option value="4">4 x 4</option>
 </select>
 </div>
-<button class="error__button error__button--active"onclick="window.location.href='{% url 'red' %}'">PLAY</button>
-<button class="error__button"onclick="window.location.href='{% url 'home' %}'">BACK TO BASE</button>
+<button type="submit" class="error__button error__button--active">PLAY</button>
+<button class="error__button" onclick="window.location.href='{% url 'home' %}'">BACK TO BASE</button>
 <script type="text/javascript">
 $("#gamemode").change(function() {
     if ($(this).val() == "yes") {

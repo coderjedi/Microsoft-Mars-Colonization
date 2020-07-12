@@ -107,7 +107,7 @@ body {
   top: 400px;
   transform: translateY(-60%);
   font-family: 'Righteous', cursive;
-  color: #6c6f74;
+  color: #02e5ed;
 }
 
 .error__title {
@@ -119,7 +119,7 @@ body {
 }
 
 .error__description {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .error__button {

@@ -8,12 +8,15 @@
 		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
     		<script type="text/javascript" src="{% static 'js/script_unbeatable.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/Reverse_TicTacToe.js' %}"></script>
+		<script type="text/javascript">
+		var difficulty=new String('{{level}}');
+		</script>
 		<title>Mars Colonization Program</title>
 	</head>
 	<body >
 		<div style="width: 100%;">
 			<header>
-				<div style="color:cyan;">REVERSE TICTACTOE using Unbeatable Minimax AI </div>
+				<div style="color:cyan;">REVERSE TICTACTOE using {{level}} Level Minimax AI </div>
 				<p class="reverse" style="background-color:#072FEC;color:#F15A5A">RULE: The player who gets three in a line loses</p>
 						</header>
 			</div>
@@ -22,14 +25,14 @@
 			<h1 id="message" style="font-family: Sans;text-align: center;color:white;"></h1>
 			<br />
 		<table id="tab-tic-tac-toe" cellspacing="0">
-			<tr><td id="00" onclick="clickedCell_reverse(this)"></td><td id="01" onclick="clickedCell_reverse(this)"></td><td id="02" onclick="clickedCell_reverse(this)"></td></tr>
-			<tr><td id="10" onclick="clickedCell_reverse(this)"></td><td id="11" onclick="clickedCell_reverse(this)"></td><td id="12" onclick="clickedCell_reverse(this)"></td></tr>
-			<tr><td id="20" onclick="clickedCell_reverse(this)"></td><td id="21" onclick="clickedCell_reverse(this)"></td><td id="22" onclick="clickedCell_reverse(this)"></td></tr>
+			<tr><td id="00" onclick="clickedCell_reverse(this,difficulty)"></td><td id="01" onclick="clickedCell_reverse(this,difficulty)"></td><td id="02" onclick="clickedCell_reverse(this,difficulty)"></td></tr>
+			<tr><td id="10" onclick="clickedCell_reverse(this,difficulty)"></td><td id="11" onclick="clickedCell_reverse(this,difficulty)"></td><td id="12" onclick="clickedCell_reverse(this,difficulty)"></td></tr>
+			<tr><td id="20" onclick="clickedCell_reverse(this,difficulty)"></td><td id="21" onclick="clickedCell_reverse(this,difficulty)"></td><td id="22" onclick="clickedCell_reverse(this,difficulty)"></td></tr>
 		</table>
 		<br><br>
 		<h2 id="hint" style="font-family: Sans;text-align: center;color:white;"></h2>
 		<br />
-		<input type="button" value="AI starts" id="bnt-restart" onclick="restartBnt_reverse(this)"/>
+		<input type="button" value="AI starts" id="bnt-restart" onclick="restartBnt_reverse(this,difficulty)"/>
 		<br>
 		<input type="button" value="Suggest me a Move" id="bnt-hint" onclick="hint_reverse()"/>
 		<br />
@@ -70,9 +73,10 @@
 				 &nbsp
 		 <select class="form-control" id="algo" name="algo">
 			 <option value=""></option>
-			 <option value="Minimax">Minimax Algorithm</option>
-			 <option value="NN">Neural Network Based Algorithm</option>
-			 <option value="Logic">Logic Based Algorithm</option>
+			 <option value="Minimax">TicTacToe using Minimax Algo.</option>
+			 <option value="NN">TicTacToe using Neural Networks</option>
+			 <option value="Logic">TicTacToe using Logic Based Algo.</option>
+			 <option value="Reverse">Reverse TicTacToe using Minimax Algo.</option>
 		 </select>
 	 </div>
 	 <div class="form-group" id="gridsize">

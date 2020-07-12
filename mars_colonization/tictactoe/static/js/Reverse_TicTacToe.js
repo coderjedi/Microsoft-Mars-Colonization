@@ -74,7 +74,7 @@ Return best score
 }
 
 /* It calculates the next move based on minimax algorithm */
-function aiTurn_minimax_reverse() {
+function aiTurn_minimax_reverse(difficulty) {
 	var x = document.getElementsByTagName("td");
 	for (var i = 0; i < x.length; i++)
 	{
@@ -95,7 +95,20 @@ function aiTurn_minimax_reverse() {
 		}
 	}
 	else {
-		move = minimax_reverse(board, getemptyCells(board).length, COMP);
+		if(difficulty=="Easy")
+		{
+			console.log("easy")
+				move = minimax_reverse(board, 1, COMP);
+		}
+		else if(difficulty=="Medium")
+		{
+			console.log("medium")
+				move = minimax_reverse(board,3, COMP);
+		}
+		else
+		{
+				move = minimax_reverse(board, getemptyCells(board).length, COMP);
+		}
 		x = move[0];
 		y = move[1];
 		if (setMove(x, y, COMP)) {
@@ -130,7 +143,7 @@ function hint_reverse()
 
 
 /* This function gets executed when human player clicks on a cell on TicTacToe board */
-function clickedCell_reverse(cell) {
+function clickedCell_reverse(cell,difficulty) {
 	// Until game ends restart button is disabled
 	var button = document.getElementById("bnt-restart");
 	button.disabled = true;
@@ -151,7 +164,7 @@ function clickedCell_reverse(cell) {
 			{
 				console.log("Condition to continue")
 				//Selects which algorithm to use to compute AI's move based on user's choice of algorithm
-				aiTurn_minimax_reverse();
+				aiTurn_minimax_reverse(difficulty);
 			}
 		}
 	}
@@ -208,10 +221,10 @@ function clickedCell_reverse(cell) {
 }
 
 /* Restart the game*/
-function restartBnt_reverse(button) {
+function restartBnt_reverse(button,difficulty) {
 	if (button.value == "AI starts") {
 		flag=false
-		aiTurn_minimax_reverse();
+		aiTurn_minimax_reverse(difficulty);
 		button.disabled = true;
 	}
 	else if (button.value == "Restart") {
