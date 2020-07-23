@@ -41,14 +41,6 @@ def Redirection(request):
             else:
                 return redirect('reverse_u', permanent=True)
         else:
-            # if(request.POST['grid']=="4"):
-            #     if(level=="easy"):
-            #         return redirect('mnmx_4_e', permanent=True)
-            #     elif(level=="medium"):
-            #         return redirect('mnmx_4_m', permanent=True)
-            #     else:
-            #         return redirect('mnmx_4_u', permanent=True)
-            # else:
             if(level=="easy"):
                 return redirect('mnmx_e', permanent=True)
             elif(level=="medium"):
@@ -113,34 +105,8 @@ def reverse_medium(request):
 def reverse_unbeatable(request):
     return render(request, 'ai_reverse_tictactoe.html',{"level": "Unbeatable"})
 
-# def Ai_4_minimax_e(request):
-#     return render(request, 'minimax_4.html',{"level": "easy"})
-#
-# def Ai_4_minimax_m(request):
-#     return render(request, 'minimax_4.html',{"level": "medium"})
-#
-# def Ai_4_minimax_u(request):
-#     return render(request, 'minimax_4.html',{"level": "unbeatable"})
 
 # ****************************************************************************************************************************************************
-# @csrf_exempt
-# def get_index(request):
-#     print("-----------Board is:")
-#     print(request.POST['brd'])
-#     state=np.asarray(json.loads(request.POST['brd']))
-#     initial_board_state = TicTacToeGameState(state = state, next_to_move=1)
-#     root = TwoPlayersGameMonteCarloTreeSearchNode(state = initial_board_state)
-#     mcts = MonteCarloTreeSearch(root)
-#     best_node = mcts.best_action(5000)
-#     index_array=best_node.state.board-state
-#     first=np.nonzero(index_array)[0][0]
-#     second=np.nonzero(index_array)[1][0]
-#     print("First is:"+str(first)+"Second is:"+str(second))
-#     responsedata={
-#         'x':int(first),
-#         'y':int(second)
-#     }
-#     return JsonResponse(responsedata)
 
 # Check if any of the players has won,
 # b: tictactoe board
