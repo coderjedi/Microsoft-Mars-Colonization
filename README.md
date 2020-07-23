@@ -50,20 +50,14 @@ To setup the project on your computer, follow the steps given below-
 
 1. Clone the repo on your local machine
 
-2. Change your working directory to the folder mars_colonization
+2. Open terminal and change your working directory to the folder mars_colonization
 
 3. Run the following command
 ```sh
 $ pip install requirements.txt
 ```
 
-4. After the dependencies get installed execute the commands below
-```sh
-$ python manage.py makemigrations
-$ python manage.py migrate
-```
-
-5. After the migrations are done, you can now run the web app using
+4. After the dependencies get installed, you can now run the web app using
 ```sh
 $ python manage.py runserver
 ```
